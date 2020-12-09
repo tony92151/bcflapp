@@ -7,6 +7,7 @@ import (
 // RegisterCodec registers concrete types on codec
 func RegisterCodec(cdc *codec.Codec) {
   // this line is used by starport scaffolding
+		cdc.RegisterConcrete(MsgCreateJoblist{}, "bcflapp/CreateJoblist", nil)
 }
 
 // ModuleCdc defines the module codec

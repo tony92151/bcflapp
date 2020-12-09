@@ -6,5 +6,5 @@ build:
 	@echo "\n Use ./bcflapp [command]"
 
 install:
-	# go install ./cmd/tttd
-	# go install ./cmd/tttcli
+	cp bin/* ${GOPATH}/bin
+	@echo "\n Instasll success."

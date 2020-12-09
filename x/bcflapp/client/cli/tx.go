@@ -23,6 +23,8 @@ func GetTxCmd(cdc *codec.Codec) *cobra.Command {
 
 	bcflappTxCmd.AddCommand(flags.PostCommands(
     // this line is used by starport scaffolding
+		GetCmdCreateJoblist(cdc),
+		//GetCmdCreateJoblistjson(cdc),
 	)...)
 
 	return bcflappTxCmd

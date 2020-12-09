@@ -9,4 +9,6 @@ import (
 // RegisterRoutes registers bcflapp-related REST handlers to a router
 func RegisterRoutes(cliCtx context.CLIContext, r *mux.Router) {
   // this line is used by starport scaffolding
+	r.HandleFunc("/bcflapp/joblist", listJoblistHandler(cliCtx, "bcflapp")).Methods("GET")
+	r.HandleFunc("/bcflapp/joblist", createJoblistHandler(cliCtx)).Methods("POST")
 }
