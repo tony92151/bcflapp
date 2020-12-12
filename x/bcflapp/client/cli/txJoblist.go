@@ -18,22 +18,29 @@ import (
 
 func GetCmdCreateJoblist(cdc *codec.Codec) *cobra.Command {
 	return &cobra.Command{
-		Use:   "create-joblist [jobcreator] [tags] [limit] [members]",
+		Use:   "create-joblist [jobcreator] [tags] [limit]",
 		Short: "Creates a new joblist",
-		Long : "create-joblist cosmos... price,size 3 cosmos...,cosmos...",
+		Long : "create-joblist cosmos... price,size 3",
 		Args:  cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			argsJobcreator := string(args[0])
-			argsTags := strings.Split((string(args[1])), ",")
+			argsTags := strings.Split(string(args[1]), ",")
 			argsLimit := string(args[2])
-			argsMembers := strings.Split((string(args[3])), ",")
+			//argsMembers := strings.Split(string(args[3]), ",")
+			//argsMembers := strings.Split("", ",")
+			var argsMembers []types.MemberState
 
 			u, err := strconv.ParseUint(argsLimit, 10, 16)
 
-			if len(argsMembers) > int(u) {
-				fmt.Println("Number of members is larger than limitation.")
-				return err
+			if !(u > 0) {
+				panic(fmt.Sprintf("Limitation must greater than 0."))
 			}
+
+			//if len(argsMembers) > int(u) {
+			//	fmt.Println("Number of members is larger than limitation.")
+			//	return err
+			//}
+
 			//var argsMemstate []types.MemberState
 			//
 			//

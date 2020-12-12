@@ -4,11 +4,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
-type Joblist struct {
+type Apply struct {
 	Creator sdk.AccAddress `json:"creator" yaml:"creator"`
 	ID      string         `json:"id" yaml:"id"`
-  Jobcreator string `json:"jobcreator" yaml:"jobcreator"`
+  Jobid string `json:"jobid" yaml:"jobid"`
   Tags []string `json:"tags" yaml:"tags"`
-  Limit string `json:"limit" yaml:"limit"`
-  Members []MemberState `json:"members" yaml:"members"`
+  Datapath string `json:"datapath" yaml:"datapath"`
 }

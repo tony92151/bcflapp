@@ -18,3 +18,7 @@ const (
 	JoblistPrefix = "joblist-"
 )
 		
+const (
+	ApplyPrefix = "apply-"
+)
+		

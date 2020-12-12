@@ -2,13 +2,11 @@ package keeper
 
 import (
 	"fmt"
-
-	"github.com/tendermint/tendermint/libs/log"
-
+	"github.com/bcflapp/x/bcflapp/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/bank"
-	"github.com/bcflapp/x/bcflapp/types"
+	"github.com/tendermint/tendermint/libs/log"
 )
 
 // Keeper of the bcflapp store
@@ -35,17 +33,21 @@ func (k Keeper) Logger(ctx sdk.Context) log.Logger {
 	return ctx.Logger().With("module", fmt.Sprintf("x/%s", types.ModuleName))
 }
 
+func (k Keeper) Logger2(ctx sdk.Context, inp string) log.Logger {
+	return ctx.Logger().With(inp)
+}
+
 // Get returns the pubkey from the adddress-pubkey relation
-// func (k Keeper) Get(ctx sdk.Context, key string) (/* TODO: Fill out this type */, error) {
-// 	store := ctx.KVStore(k.storeKey)
-// 	var item /* TODO: Fill out this type */
-// 	byteKey := []byte(key)
-// 	err := k.cdc.UnmarshalBinaryLengthPrefixed(store.Get(byteKey), &item)
-// 	if err != nil {
-// 		return nil, err
-// 	}
-// 	return item, nil
-// }
+//func (k Keeper) Get(ctx sdk.Context, key string) (/* TODO: Fill out this type */, error) {
+//	store := ctx.KVStore(k.storeKey)
+//	var item /* TODO: Fill out this type */
+//	byteKey := []byte(key)
+//	err := k.cdc.UnmarshalBinaryLengthPrefixed(store.Get(byteKey), &item)
+//	if err != nil {
+//		return nil, err
+//	}
+//	return item, nil
+//}
 
 // func (k Keeper) set(ctx sdk.Context, key string, value /* TODO: fill out this type */ ) {
 // 	store := ctx.KVStore(k.storeKey)

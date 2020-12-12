@@ -14,15 +14,18 @@ type MsgCreateJoblist struct {
   Jobcreator string `json:"jobcreator" yaml:"jobcreator"`
   Tags []string `json:"tags" yaml:"tags"`
   Limit string `json:"limit" yaml:"limit"`
-  Members []string `json:"members" yaml:"members"`
+  Members []MemberState `json:"members" yaml:"members"`
 }
 
-type MemberState struct {
-  Member string
-  Auth bool
-}
+//type MemberState struct {
+//  Member sdk.AccAddress
+//  Auth bool
+//  TrainJob string
+//  TrainState int  // -1: waiting, 0: authorized and get job info, 1: training, 2: done
+//  TrainResult string
+//}
 
-func NewMsgCreateJoblist(creator sdk.AccAddress, jobcreator string, tags []string, limit string, members []string) MsgCreateJoblist {
+func NewMsgCreateJoblist(creator sdk.AccAddress, jobcreator string, tags []string, limit string, members []MemberState) MsgCreateJoblist {
   return MsgCreateJoblist{
     ID: uuid.New().String(),
 		Creator: creator,

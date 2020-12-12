@@ -30,7 +30,9 @@ func GetQueryCmd(queryRoute string, cdc *codec.Codec) *cobra.Command {
 	bcflappQueryCmd.AddCommand(
 		flags.GetCommands(
       // this line is used by starport scaffolding
+			GetCmdListApply(queryRoute, cdc),
 			GetCmdListJoblist(queryRoute, cdc),
+			GetCmdListJoblistFromID(queryRoute, cdc),
 		)...,
 	)
 
